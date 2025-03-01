@@ -4,8 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css" />
+    <link rel="JavaScript" href="calculatorUtil.js" />
   </head>
   <body>
     <h1>Simple Calculator</h1>
+
+    <div id="calc_container">
+      <label for="numberOne">First Number:</label>
+      <input class="inputs" id="numberOne" type="number" /> <br />
+      <label for="numberTwo">Second Number:</label>
+      <input class="inputs" id="numberTwo" type="number" /> <br />
+      <label for="plus">+</label>
+      <input class="symbol" id="plus" type="radio" name="math-operator" /><br />
+      <label for="minus">-</label>
+      <input
+        class="symbol"
+        id="minus"
+        type="radio"
+        name="math-operator"
+      /><br />
+      <label for="times">X</label>
+      <input
+        class="symbol"
+        id="times"
+        type="radio"
+        name="math-operator"
+      /><br />
+      <label for="divide">/</label>
+      <input
+        class="symbol"
+        id="divide"
+        type="radio"
+        name="math-operator"
+      /><br />
+
+      <button id="equals" onclick="calculator()">Equals</button>
+
+      <div id="total">Total:</div>
+    </div>
   </body>
 </html>
+
+<!-- <button id="one" onclick="">1</button>
+<button id="two" onclick="">2</button>
+<button id="three" onclick="">3</button>
+<button id="four" onclick="">4</button>
+<button id="five" onclick="">5</button>
+<button id="six" onclick="">6</button>
+<button id="seven" onclick="">7</button>
+<button id="eight" onclick="">8</button>
+<button id="nine" onclick="">9</button>
+<button id="zero" onclick="">0</button>
+<button id="decimal" onclick="">.</button> -->

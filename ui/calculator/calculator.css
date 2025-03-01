@@ -1,0 +1,16 @@
+#calc_container {
+  border: solid purple 3px;
+  background-color: antiquewhite;
+  height: 400px;
+  width: 400px;
+  padding: 5px;
+  /* display: flex; */
+  flex: auto;
+  float: left;
+}
+
+#inputs {
+  display: flex;
+  float: left;
+  padding: 3px;
+}
