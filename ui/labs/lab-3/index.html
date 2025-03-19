@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #e3f2fd;
+        display: flex;
+      }
+      .card {
+        padding: 10px;
+        border: blueviolet, solid, 1px;
+        background-color: pink;
+        box-shadow: 2px 2px 5px palevioletred;
+      }
+      .card-title {
+        font-weight: 600;
+        font-size: 3em;
+        padding: 0 0 10px 0;
+      }
+      .card-description {
+        font-weight: 400;
+        font-size: 2em;
+      }
+      #card-list {
+        display: flex;
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <template id="card-template">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-text"></div>
+        </div>
+      </div>
+    </template>
+    <div id="card-list"></div>
+    <script>
+      function addCard(title, textBody) {
+        // clone the template
+        const template = document
+          .getElementById("card-template")
+          .content.cloneNode(true);
+        // populate the template
+        template.querySelector(".card-title").innerText = title;
+        template.querySelector(".card-text").innerText = textBody;
+        data.age + " years young";
+        // include the populated template into the page
+        document.querySelector("#card-list").appendChild(template);
+      }
+      const data = [
+        { name: "bob", age: 23 },
+        { name: "alice", age: 39 },
+        { name: "kate", age: 21 },
+        { name: "amy", age: 55 },
+      ];
+
+      data.forEach((item, index) => {
+        addCard(
+          `Your match - ${index + 1}`,
+          `Their name is ${item.name} and they are ${item.age}. Would you like to meet?`
+        );
+      });
+    </script>
+  </body>
+</html>

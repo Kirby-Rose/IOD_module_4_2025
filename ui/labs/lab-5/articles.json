@@ -1,0 +1,42 @@
+[
+  {
+    "type": "Featured",
+    "title": "Breakthrough in Renewable Energy",
+    "overview": "Scientists have developed a new solar panel technology that significantly increases efficiency."
+  },
+  {
+    "type": "Featured",
+    "title": "Historic Artifacts Unearthed",
+    "overview": "Archaeologists have discovered ancient artifacts that shed light on early human civilizations."
+  },
+  {
+    "type": "Featured",
+    "title": "Tech Giant Unveils New AI",
+    "overview": "A leading tech company has introduced an AI system designed to revolutionize healthcare."
+  },
+  {
+    "type": "Sports",
+    "title": "Local Team Wins Championship",
+    "overview": "The city's basketball team clinched the championship in a thrilling final game."
+  },
+  {
+    "type": "Sports",
+    "title": "Olympic Hopeful Sets Record",
+    "overview": "A young athlete has broken a national record ahead of the upcoming Olympic Games."
+  },
+  {
+    "type": "Weather",
+    "title": "Severe Storms Sweep the Region",
+    "overview": "Heavy rains and strong winds have caused widespread damage across several states."
+  },
+  {
+    "type": "Politics",
+    "title": "New Policy Aims to Reduce Emissions",
+    "overview": "The government has announced a bold plan to cut carbon emissions by 50% by 2030."
+  },
+  {
+    "type": "Politics",
+    "title": "Election Reform Bill Passed",
+    "overview": "Lawmakers have approved a bill aimed at improving transparency in the electoral process."
+  }
+]

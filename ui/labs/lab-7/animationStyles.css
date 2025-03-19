@@ -1,0 +1,69 @@
+p {
+  animation-name: slidein;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  float: left;
+}
+.redbox {
+  border: solid, pink, 3px;
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  background-color: rgb(214, 180, 245);
+  animation-name: boxbounce;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    color: rgb(244, 69, 119);
+  }
+  25% {
+    color: rgb(255, 0, 38);
+  }
+  50% {
+    font-size: 300%;
+    margin-left: 40%;
+    color: rgb(170, 44, 44);
+    transform: rotate(15deg);
+  }
+  to {
+    margin-left: 0;
+    color: rgb(10, 10, 10);
+  }
+}
+
+@keyframes boxbounce {
+  from {
+    margin-top: 0;
+  }
+  50% {
+    height: 80px;
+    width: 80px;
+    border: solid, rgb(225, 225, 90), 5px;
+    margin-top: 45%;
+  }
+  to {
+    background-color: rgb(98, 98, 219);
+  }
+}
+
+.Transition {
+  border: solid, rgb(200, 255, 192), 3px;
+  height: 300px;
+  width: 300px;
+  background-color: rgb(124, 21, 220);
+  margin: 100px;
+  transition: 3sec;
+}
+
+.Transition:hover {
+  color: rgb(22, 77, 77);
+}

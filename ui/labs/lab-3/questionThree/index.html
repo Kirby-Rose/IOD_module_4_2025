@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic HTML Page</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #e3f2fd;
+        display: flex;
+      }
+      .card {
+        padding: 10px;
+        border: blueviolet, solid, 1px;
+        background-color: pink;
+        box-shadow: 2px 2px 5px palevioletred;
+      }
+      .card-title {
+        font-weight: 600;
+        font-size: 3em;
+        padding: 0 0 10px 0;
+      }
+      .card-description {
+        font-weight: 400;
+        font-size: 2em;
+      }
+      #card-list {
+        display: flex;
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAME -->
+    <h3 id="artist-name-header"></h3>
+    <template id="card-template">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-img" src="./"></div>
+        </div>
+      </div>
+    </template>
+    <!-- PORTFOLIO CARDS -->
+
+    <script>
+      function addCard(title, textBody) {
+        // clone the template
+        const template = document
+          .getElementById("card-template")
+          .content.cloneNode(true);
+        // populate the template
+        template.querySelector(".card-title").innerText = title;
+        template.querySelector(".card-img");
+      }
+      const artist = {
+        name: "Van Gogh",
+        portfolio: [
+          {
+            title: "portrait",
+            url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
+          },
+          {
+            title: "sky",
+            url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
+          },
+        ],
+      };
+
+      artist.portfolio.forEach((item, index) => {
+        addCard(`${item.title}`, `${item.url}`);
+      });
+    </script>
+  </body>
+</html>
+<div id="card-list"></div>
+
+<script>
+  // Set artist name
+  document.getElementById("artist-name-header").innerText = artist.name;
+
+  // Function to add cards to the card list
+  function addCard(title, imageUrl) {
+    const template = document
+      .getElementById("card-template")
+      .content.cloneNode(true);
+
+    // Populate the template
+    template.querySelector(".card-title").innerText = title;
+    const imgElement = document.createElement("img");
+    imgElement.src = imageUrl;
+    imgElement.alt = title;
+    imgElement.style.width = "100%";
+    template.querySelector(".card-body").appendChild(imgElement);
+
+    // Append to the card list
+    document.getElementById("card-list").appendChild(template);
+  }
+
+  // Add cards for each portfolio item
+  artist.portfolio.forEach((item) => {
+    addCard(item.title, item.url);
+  });
+</script>

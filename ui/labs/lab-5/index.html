@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Reports</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #a49b9b;
+        color: #591111;
+        padding: 10px 20px;
+      }
+      main {
+        padding: 20px;
+      }
+      article {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+      }
+      h2 {
+        color: #695757;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand">News</a>
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Sign In</a>
+              <a class="nav-link" href="#">Got News?</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h4>Add your article</h4>
+      <div id="inputBox">
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Options</label
+          >
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Select Type</option>
+            <option value="1">Feature</option>
+            <option value="2">Sport</option>
+            <option value="3">Weather</option>
+            <option value="4">Politics</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >Title</span
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="form-title"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >Overview</span
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="form-overview"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          onclick="createNewsItem(event)"
+        >
+          Upload
+        </button>
+      </div>
+
+      <template id="card">
+        <div class="card">
+          <h5 class="card-header"></h5>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+            <a href="#" class="btn btn-primary">Continue Reading</a>
+          </div>
+        </div>
+      </template>
+    </main>
+    <script>
+      function addCard(type, title, overview) {
+        const template = document
+          .getElementById("card")
+          .content.cloneNode(true);
+        template.querySelector(".card-header").innerText = type;
+        template.querySelector(".card-title").innerText = title;
+        template.querySelector(".card-text").innerText = overview;
+
+        // Append the card to the main container
+        document.querySelector("main").appendChild(template);
+      }
+
+      fetch("./articles.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const news = data;
+          news.forEach((article) => {
+            addCard(article.type, article.title, article.overview);
+          });
+        })
+        .catch((error) => console.error("Error fetching articles:", error));
+
+      const intervalTrigger = setInterval(() => {
+        addCard();
+        console.log("Interval triggered");
+      }, 5000);
+
+      let newArticles = [];
+
+      function createNewsItem(event) {
+        event.preventDefault();
+        let newType = document.getElementById("inputGroupSelect01").value;
+        let newTitle = document.getElementById("form-title").value;
+        let newOverview = document.getElementById("form-overview").value;
+        newArticles.push({
+          type: newType,
+          title: newTitle,
+          overview: newOverview,
+        });
+        addCard(newType, newTitle, newOverview);
+        document.getElementById("inputGroupSelect01").value = "";
+        document.getElementById("form-title").value = "";
+        document.getElementById("form-overview").value = "";
+      }
+
+      function stopInterval() {
+        clearInterval(intervalTrigger);
+      }
+    </script>
+  </body>
+</html>
